@@ -1,0 +1,9 @@
+<div class="posts">
+    <ul>
+        <li @click="goToSinglePost(post._id)" v-for="post in posts" key="post._id">
+            <img :src="post.author.avatar">
+            <h3>{{post.title}} </h3>
+            <p>on {{post.createdDate}}</p>
+        </li>
+    </ul>
+</div>

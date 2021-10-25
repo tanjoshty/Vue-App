@@ -1,0 +1,22 @@
+<div class="profile-container">
+    <div class="profile-heading">
+        <img :src="profileData.profileAvatar" alt="">
+        <h2>{{profileData.profileUsername}}</h2>
+        <button v-show="showFollowButton" @click="followUser">Follow <i class="fas fa-user-plus"></i></button>
+    </div>
+    <div class="tabs">
+        <div @click="showProfilePosts" :class="[postsSelected ? 'is-tab-selected' : '', 'tab']">Posts: {{profileData.counts.postCount}}</div>
+        <div @click="showProfileFollowers" :class="[followersSelected ? 'is-tab-selected' : '', 'tab']">Followers: {{profileData.counts.followerCount}}</div>
+        <div @click="showProfileFollowing" :class="[followingSelected ? 'is-tab-selected' : '', 'tab']">Following: {{profileData.counts.followingCount}}</div>
+    </div>
+    <div v-if="postsSelected" class="list">
+        <ProfilePosts />
+    </div>
+    <div v-else-if="followersSelected" class="list">
+        <ProfileFollowers />
+    </div>
+    <div v-else class="list">
+        <ProfileFollowing />
+    </div>
+</div>
+

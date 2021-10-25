@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+
+:root {
+  --primary-color: #4717f6;
+  --secondary-color: #A239CA;
+  --dark-color: #0E0B16;
+  --grey-color: #E7DFDD;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 830px;
+    margin: auto;
+    margin-top: 4rem;
+}
+
+.container .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.heading h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.buttons i {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+.delete {
+    color: red;
+}
+.edit {
+    color: #4717f6;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+}
+
+.author p {
+    margin: 0.5rem 0.5rem;
+}
+
+.author img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.post div {
+    margin-top: 2rem;
+    font-family: "Cardo", sans-serif;
+    font-size: 1.3rem;
+}

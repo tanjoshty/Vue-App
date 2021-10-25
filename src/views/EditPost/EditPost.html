@@ -1,0 +1,9 @@
+<div class="container">
+    <form @submit.prevent="createPost">
+        <label for="title">Title</label>
+        <input v-model="title" autofocus id="title" name="title" type="text">
+        <label for="body">Body Content</label>
+        <textarea v-model="body" name="body" id="body"></textarea>
+        <input type="submit" value="Save New Post">
+    </form>
+</div>

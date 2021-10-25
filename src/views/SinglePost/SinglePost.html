@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="heading">
+        <h1>{{post.title}}</h1>
+        <div class="buttons">
+            <i v-show="showButtons" @click="goToEdit(post._id)" class="fas fa-edit edit"></i>
+            <i v-show="showButtons" class="fas fa-trash delete"></i>
+        </div>
+    </div>
+    <div class="author">
+        <img :src="post.author.avatar" alt="">
+        <p>Posted by <router-link :to="{name: 'profile', params: {id: post.author.username}}">{{post.author.username}}</router-link> on {{post.createdDate}}</p>
+    </div>
+    <div class="post">
+        <div v-html="postBody"></div>
+    </div>
+</div>

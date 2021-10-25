@@ -1,0 +1,16 @@
+<div class="register-container">
+    <div class="illustration">
+        <h1>The Most Complex App</h1>
+        <p>Are you sick of short tweets and impersonal "shared" posts that are reminiscent of the late 90's email forwards? We believe getting back to actually writing is the key to enjoying the internet again.</p>
+        <img src="../../assets/undraw_Public_discussion_re_w9up.svg" alt="">
+    </div>
+    <div class="register">
+        <h2>Sign Up Here!</h2>
+        <form @submit.prevent="register">
+            <input v-model="email" type="email" placeholder="Email">
+            <input v-model="username" type="text" placeholder="Username">
+            <input v-model="password" type="password" placeholder="Password">
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+</div>

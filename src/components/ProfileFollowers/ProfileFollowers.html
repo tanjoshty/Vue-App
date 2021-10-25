@@ -1,0 +1,8 @@
+<div class="followers">
+    <ul>
+        <li @click="goToProfile(follower.username)" v-for="follower in followers" key="follower.username">
+            <img :src="follower.avatar">
+            <p>{{follower.username}}</p>
+        </li>
+    </ul>
+</div>

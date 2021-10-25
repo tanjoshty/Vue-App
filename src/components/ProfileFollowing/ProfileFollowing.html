@@ -1,0 +1,8 @@
+<div class="following">
+    <ul>
+        <li @click="goToProfile(follow.username)" v-for="follow in following" key="follow.username">
+            <img :src="follow.avatar">
+            <p>{{follow.username}}</p>
+        </li>
+    </ul>
+</div>

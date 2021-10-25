@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+
+:root {
+  --primary-color: #4717f6;
+  --secondary-color: #A239CA;
+  --dark-color: #0E0B16;
+  --grey-color: #E7DFDD;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eee
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0E0B16;
+  height: 70px;
+  padding: 0px 50px;
+}
+
+header h3 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #E7DFDD;
+  cursor: pointer;
+}
+
+.login-form input {
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  resize: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.login-form input[type="submit"] {
+  background-color: #A239CA;
+  color: #0E0B16;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.nav-right > * {
+  margin: 15px;
+  cursor: pointer;
+}
+
+.nav-right i {
+  color: #E7DFDD;
+}
+
+.nav-right img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #A239CA;
+}
+
+.nav-right button {
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.nav-right .create-post {
+  background-color: #A239CA;
+  color: #0E0B16;
+}

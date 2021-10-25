@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+
+.followers {
+    flex: 0 0 100%;
+}
+
+.followers ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.followers ul li {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: stretch;
+    border: 1px grey solid;
+    border-bottom: none;
+    flex: 0 0 100%;
+    cursor: pointer;
+}
+
+.followers ul li:hover {
+    background: #E7DFDD;
+}
+
+.followers ul li:first-child {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.followers ul li:last-child {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom: 1px grey solid;
+}
+
+.followers ul li img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+
+
+.followers ul li p {
+    font-family: "Cardo", sans-serif;
+    margin: 1rem;
+    font-size: 1.2rem;
+}

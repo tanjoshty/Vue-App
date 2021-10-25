@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+
+.empty-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 20rem;
+    height: 60vh;
+}
+
+.empty-container h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.empty-container p {
+    font-family: "Cardo", sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+}

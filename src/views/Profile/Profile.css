@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 68vh;
+    margin: 0 15rem;
+    padding: 4rem 2rem;
+}
+
+.profile-heading {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-heading > * {
+    margin-right: 1rem;
+}
+
+.profile-heading img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.profile-heading h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 2rem;
+}
+
+.profile-heading button {
+    font-size: 1rem;;
+    margin-top: 0.2rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+    background: #0E0B16;
+    color: #E7DFDD;
+}
+
+.profile-heading button:hover {
+    opacity: 0.9;
+}
+
+.tabs {
+    /**
+     * Setting display to flex makes this container lay
+     * out its children using flexbox, the exact same
+     * as in the above "Stepper input" example.
+     */
+    display: flex;
+    align-self: stretch;
+  
+    border-bottom: 1px solid #D7DBDD;
+}
+  
+.tab {
+    cursor: pointer;
+    padding: 5px 30px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.is-tab-selected {
+    border-bottom-color: #A239CA;
+    color: #A239CA;
+}
+
+.list {
+    margin-top: 1rem;
+    display: flex;
+    align-self: stretch;
+}
