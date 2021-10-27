@@ -2,12 +2,14 @@ import { Options, Vue } from 'vue-class-component';
 import store from '@/store';
 import Axios from "axios";
 import router from '@/router';
-import { Watch } from 'vue-property-decorator';
+import { Watch, Prop } from 'vue-property-decorator';
 
 export default class ProfileFollowers extends Vue {
     private username: any;
     private isLoading: boolean = true;
     private followers: any = [];
+
+    @Prop() testProp: any;
 
     mounted() {
         this.username = this.$route.params.id;
@@ -16,6 +18,11 @@ export default class ProfileFollowers extends Vue {
 
     public goToProfile(id: string): void {
         router.push({name: 'profile', params: {id}})
+    }
+
+    @Watch('testProp')
+    function(newVal: any, oldVal: any) {
+        this.fetchFollowers(this.username);
     }
 
     @Watch('$route', {immediate: true, deep: true})

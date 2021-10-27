@@ -22,6 +22,10 @@ export default class SinglePost extends Vue {
         router.push({name: 'editPost', params: {id}})
     }
 
+    public goToProfile(id: string): void {
+        router.push({name: 'profile', params: {id}})
+    }
+
     @Watch('$route', {immediate: true, deep: true})
     public onRouteChange (to: any, from: any) {
         this.fetchPost(to.params.id);
@@ -50,6 +54,22 @@ export default class SinglePost extends Vue {
     public formatDate(post: any): string {
         const date = new Date(post.createdDate);
         return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    }
+
+    public async deletePost(id: string): Promise<void> {
+        const areYouSure = window.confirm("Do you really want to delete this post?");
+        if (areYouSure) {
+            try {
+                const response = await Axios.delete(`/post/${id}`, {data: {token: store.state.user.token} });
+                if (response.data == "Success") {
+                    alert("Post was successfully deleted.");
+                    this.goToProfile(this.currentUser);
+                }
+                
+            } catch (error) {
+                console.log("There was a problem");
+            }
+        } 
     }
 
 }

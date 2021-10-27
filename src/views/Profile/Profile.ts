@@ -18,19 +18,17 @@ import router from '@/router';
 
 export default class Profile extends Vue {
     private showFollowButton: boolean = false;
+    private showFollowingButton: boolean = false;
     private postsSelected: boolean = true;
     private followersSelected: boolean = false;
     private followingSelected: boolean = false;
-
     private followActionLoading: boolean = false;
-    private startFollowingRequestCount: number = 0;
-    private stopFollowingRequestCount: number = 0;
     private profileData = {
         profileUsername: "...",
         profileAvatar: "https://gravatar.com/avatar/placeholder?s=128",
         isFollowing: false,
-        counts: {postCount: "", followerCount: "", followingCount: ""}
-    }
+        counts: {postCount: 0, followerCount: 0, followingCount: 0}
+    };
 
     @Watch('$route', {immediate: true, deep: true})
     public onRouteChange (to: any, from: any) {
@@ -53,8 +51,29 @@ export default class Profile extends Vue {
         this.followingSelected = true;
     }
 
-    public async followUser(): Promise<void> {
-        
+    public async followUser(id: string): Promise<void> {
+        try {
+            const response = await Axios.post(`/addFollow/${id}`, {token: store.state.user.token});
+            this.showFollowButton = false;
+            this.profileData.isFollowing = true;
+            this.profileData.counts.followerCount++;
+            this.followActionLoading = false;
+        } catch (error) {
+            console.log("There was a problem");
+        }
+    }
+
+    public async unFollowUser(id: string): Promise<void> {
+        try {
+            const response = await Axios.post(`/removeFollow/${id}`, {token: store.state.user.token});
+            this.showFollowButton = true;
+            this.showFollowingButton = false;
+            this.profileData.isFollowing = false;
+            this.profileData.counts.followerCount--;
+            this.followActionLoading = false;
+        } catch (error) {
+            console.log("There was a problem");
+        }
     }
 
     public async fetchProfileData(): Promise<void> {
@@ -62,19 +81,25 @@ export default class Profile extends Vue {
         try {
             const response = await Axios.post(`/profile/${username}`, {token: store.state.user.token});
             this.profileData = response.data;
-            this.checkUser(response.data.profileUsername);
+            this.checkUser(response.data);
+            console.log(response.data);
         } catch (error) {
             console.log("There was a problem");
         }
     }
 
-    public checkUser(profileUsername: string): void {
+    public checkUser(profile: any): void {
         const currentUser = store.state.user.username;
-        const profileUser = profileUsername;
-        if (profileUser !== currentUser) {
+        const profileUser = profile.profileUsername;
+        if (profileUser !== currentUser && profile.isFollowing) {
+            this.showFollowButton = false;
+            this.showFollowingButton = true;
+        } else if (profileUser !== currentUser && !profile.isFollowing) {
             this.showFollowButton = true;
+            this.showFollowingButton = false;
         } else {
             this.showFollowButton = false;
+            this.showFollowingButton = false;
         }
     }
 }

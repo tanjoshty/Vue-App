@@ -3,7 +3,7 @@
         <h1>{{post.title}}</h1>
         <div class="buttons">
             <i v-show="showButtons" @click="goToEdit(post._id)" class="fas fa-edit edit"></i>
-            <i v-show="showButtons" @click="deletePost" class="fas fa-trash delete"></i>
+            <i v-show="showButtons" @click="deletePost(post._id)" class="fas fa-trash delete"></i>
         </div>
     </div>
     <div class="author">

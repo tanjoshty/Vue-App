@@ -16,10 +16,14 @@ export default class CreatePost extends Vue {
             const response = await Axios.post("/create-post", { title, body, token: store.state.user.token });
             console.log("Post was successfully created");
             console.log(response.data)
-            router.push({name: 'home'});
+            this.goToSinglePost(response.data);
             
         } catch (error) {
             console.log("There was a problem");
         }
+    }
+
+    public goToSinglePost(id: string): void {
+        router.push({name: 'singlePost', params: {id}});
     }
 }

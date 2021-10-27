@@ -2,7 +2,8 @@
     <div class="profile-heading">
         <img :src="profileData.profileAvatar" alt="">
         <h2>{{profileData.profileUsername}}</h2>
-        <button v-show="showFollowButton" @click="followUser">Follow <i class="fas fa-user-plus"></i></button>
+        <button v-show="showFollowButton" @click="followUser(profileData.profileUsername)">Follow <i class="fas fa-user-plus"></i></button>
+        <button v-show="profileData.isFollowing" @click="unFollowUser(profileData.profileUsername)">Unfollow <i class="fas fa-user-minus"></i></button>
     </div>
     <div class="tabs">
         <div @click="showProfilePosts" :class="[postsSelected ? 'is-tab-selected' : '', 'tab']">Posts: {{profileData.counts.postCount}}</div>
@@ -13,7 +14,7 @@
         <ProfilePosts />
     </div>
     <div v-else-if="followersSelected" class="list">
-        <ProfileFollowers />
+        <ProfileFollowers :testProp="showFollowButton" />
     </div>
     <div v-else class="list">
         <ProfileFollowing />
