@@ -20,6 +20,12 @@ export default createStore ({
         },
         logout: (state) => {
             state.loggedIn = !state.loggedIn;
+        },
+        openSearch: (state) => {
+            state.isSearchOpen = true;
+        },
+        closeSearch: (state) => {
+            state.isSearchOpen = false;
         }
     },
     getters: {
@@ -49,6 +55,12 @@ export default createStore ({
             localStorage.setItem("complexappAvatar", newUser.avatar);
             
             commit('login', newUser);
+        }, 
+        openSearch({commit}) {
+            commit('openSearch');
+        },
+        closeSearch({commit}) {
+            commit('closeSearch');
         }
     }
 });
