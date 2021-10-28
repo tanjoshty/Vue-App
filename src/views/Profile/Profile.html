@@ -11,7 +11,7 @@
         <div @click="showProfileFollowing" :class="[followingSelected ? 'is-tab-selected' : '', 'tab']">Following: {{profileData.counts.followingCount}}</div>
     </div>
     <div v-if="postsSelected" class="list">
-        <ProfilePosts />
+        <ProfilePosts page="profile" />
     </div>
     <div v-else-if="followersSelected" class="list">
         <ProfileFollowers :testProp="showFollowButton" />

@@ -2,12 +2,14 @@ import { Options, Vue } from 'vue-class-component';
 import store from '@/store';
 import Axios from "axios";
 import router from '@/router';
-import { Watch } from 'vue-property-decorator';
+import { Prop, Watch } from 'vue-property-decorator';
 
 export default class ProfilePosts extends Vue {
     private username: any;
+    private user: any = store.getters['getUser'];
     private isLoading: boolean = true;
     private posts: any = [];
+
 
     mounted() {
         this.username = this.$route.params.id;
@@ -19,7 +21,6 @@ export default class ProfilePosts extends Vue {
             const response = await Axios.get(`/profile/${username}/posts`);
             this.posts = response.data;
             this.isLoading = false;
-
         } catch (error) {
             console.log("There was a problem");
         }
