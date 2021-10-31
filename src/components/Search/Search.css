@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+
+:root {
+  --primary-color: #4717f6;
+  --secondary-color: #A239CA;
+  --dark-color: #0E0B16;
+  --grey-color: #E7DFDD;
+}
+
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+}
+
+.modal-search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-search-bar > * {
+  padding: 1rem 1.5rem;
+}
+
+.modal-search-bar input {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  outline: none;
+  flex: 1;
+  padding-left: 0;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Search Results */
+
+.modal-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 15rem;
+  padding: 1rem 2rem;
+}
+
+.results {
+  flex: 0 0 100%;
+  width: 50vw;
+}
+
+.results ul {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.results ul li {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: stretch;
+  border: 1px grey solid;
+  border-bottom: none;
+  flex: 0 0 100%;
+  cursor: pointer;
+  background-color: #fefefe;
+}
+
+.results ul li:hover {
+  background: #E7DFDD;
+}
+
+.results ul li:first-child {
+  background-color: #4717f6;
+  color: #fefefe;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.results ul li:first-child h3 {
+  margin-left: 1rem;
+}
+
+.results ul li:last-child {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom: 1px grey solid;
+}
+
+.results ul li img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 1rem;
+}
+
+.results ul li h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.results ul li p {
+  font-family: "Cardo", sans-serif;
+  margin-bottom: 0.6rem;
+}
+
+.results ul li h3, 
+.results ul li p {
+  margin-left: 0.5rem;
+}

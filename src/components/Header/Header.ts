@@ -1,7 +1,14 @@
-import { Vue } from 'vue-class-component';
+import { Options, Vue } from 'vue-class-component';
 import store from '@/store';
 import Axios from "axios";
 import router from '@/router';
+import Search from '../Search/Search.vue';
+
+@Options({
+    components: {
+        Search
+    }
+})
 
 export default class Header extends Vue {
 
@@ -25,6 +32,10 @@ export default class Header extends Vue {
     public logOut(): void {
         store.dispatch('logout');
         window.location.reload();
+    }
+
+    public openSearch(): void {
+        store.dispatch('openSearch');
     }
 
     public async logIn(): Promise<void> {

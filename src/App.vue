@@ -9,7 +9,7 @@ import Header from './components/Header/Header.vue';
 
 @Options({
   components: {
-    Header
+    Header,
   }
 })
 export default class App extends Vue {}
