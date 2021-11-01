@@ -42,8 +42,6 @@ export default class Search extends Vue {
 
             this.results = response.data;
             this.show = "results";
-
-            console.log(this.results);
         } catch (error) {
             console.log("There was a problem or the request was cancelled");
         }

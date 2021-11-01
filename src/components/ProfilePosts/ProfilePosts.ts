@@ -41,6 +41,5 @@ export default class ProfilePosts extends Vue {
 
     public goToSinglePost(id: string): void {
         router.push({name: 'singlePost', params: {id}});
-        console.log(id);
     }
 }

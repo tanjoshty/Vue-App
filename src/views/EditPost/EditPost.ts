@@ -26,7 +26,6 @@ export default class EditPost extends Vue {
             this.title = response.data.title;
             this.body = response.data.body;
             this.isLoading = false;
-            console.log(response.data);
             if (this.currentUser != response.data.author.username) {
                 console.log("No Permissions");
                 router.push({name: 'home'});
@@ -43,7 +42,6 @@ export default class EditPost extends Vue {
         try {
             const response = await Axios.post(`/post/${this.postId}/edit`, { title, body, token: store.state.user.token });
             console.log("Post was successfully updated");
-            console.log(response.data)
             this.goToPost(this.postId);
             
         } catch (error) {

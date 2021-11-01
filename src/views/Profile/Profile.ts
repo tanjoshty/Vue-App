@@ -82,7 +82,6 @@ export default class Profile extends Vue {
             const response = await Axios.post(`/profile/${username}`, {token: store.state.user.token});
             this.profileData = response.data;
             this.checkUser(response.data);
-            console.log(response.data);
         } catch (error) {
             console.log("There was a problem");
         }

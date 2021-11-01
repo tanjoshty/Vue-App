@@ -12,7 +12,6 @@ export default class ProfileFollowers extends Vue {
     @Prop() testProp: any;
 
     mounted() {
-        console.log(this.testProp);
         this.username = this.$route.params.id;
         this.fetchFollowers(this.username);
     }

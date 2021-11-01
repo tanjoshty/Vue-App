@@ -35,7 +35,6 @@ export default class Home extends Vue {
             }
             this.posts = response.data;
             this.isLoading = false;
-            console.log(response.data);
         } catch (error) {
             console.log("There was a problem");
         }
@@ -51,6 +50,5 @@ export default class Home extends Vue {
 
     public goToSinglePost(id: string): void {
         router.push({name: 'singlePost', params: {id}});
-        console.log(id);
     }
 }

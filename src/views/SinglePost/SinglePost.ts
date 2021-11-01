@@ -37,7 +37,6 @@ export default class SinglePost extends Vue {
             this.post = response.data;
             this.postBody = marked(this.post.body);
             this.isLoading = false;
-            console.log(response.data);
         } catch (error) {
             console.log("There was a problem");
         }

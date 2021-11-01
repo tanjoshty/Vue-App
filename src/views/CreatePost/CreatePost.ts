@@ -15,7 +15,6 @@ export default class CreatePost extends Vue {
             // API Call to register
             const response = await Axios.post("/create-post", { title, body, token: store.state.user.token });
             console.log("Post was successfully created");
-            console.log(response.data)
             this.goToSinglePost(response.data);
             
         } catch (error) {
