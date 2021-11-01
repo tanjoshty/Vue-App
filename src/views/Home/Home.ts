@@ -38,7 +38,7 @@ export default class Home extends Vue {
         } catch (error) {
             console.log("There was a problem");
         }
-        this.posts.forEach((post: any, index: number) => {
+        [...this.posts].forEach((post: any, index: number) => {
             this.posts[index].createdDate = this.formatDate(this.posts[index]);
         });
     }
@@ -50,5 +50,6 @@ export default class Home extends Vue {
 
     public goToSinglePost(id: string): void {
         router.push({name: 'singlePost', params: {id}});
+
     }
 }

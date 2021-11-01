@@ -1,8 +1,15 @@
-import { Vue } from 'vue-class-component';
+import { Options, Vue } from 'vue-class-component';
 import store from '@/store';
 import Axios from "axios";
 import router from '@/router';
 import { Watch } from 'vue-property-decorator';
+import Loader from '../Loader/Loader.vue';
+
+@Options({
+    components: {
+        Loader
+    }
+})
 
 export default class Search extends Vue {
     public isSearchOpen: boolean = false;
@@ -13,6 +20,8 @@ export default class Search extends Vue {
 
     public closeSearch(): void {
         store.dispatch('closeSearch');
+        this.show = 'neither';
+        this.keyword = '';
     }
 
     @Watch(`$store.state.isSearchOpen`)
@@ -37,17 +46,21 @@ export default class Search extends Vue {
 
     @Watch('requestCount')
     async fetchResults(newVal: any, oldVal: any) {
-        try {
-            const response = await Axios.post("/search", {searchTerm: this.keyword});
-
-            this.results = response.data;
-            this.show = "results";
-        } catch (error) {
-            console.log("There was a problem or the request was cancelled");
+        if (this.keyword === '') {
+            return
+        } else {
+            try {
+                const response = await Axios.post("/search", {searchTerm: this.keyword});
+    
+                this.results = response.data;
+                this.show = "results";
+            } catch (error) {
+                console.log("There was a problem or the request was cancelled");
+            }
+            [...this.results].forEach((post: any, index: number) => {
+                this.results[index].createdDate = this.formatDate(this.results[index]);
+            });
         }
-        this.results.forEach((post: any, index: number) => {
-            this.results[index].createdDate = this.formatDate(this.results[index]);
-        });
     }
 
     public goToSinglePost(id: string): void {

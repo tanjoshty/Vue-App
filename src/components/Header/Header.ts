@@ -3,10 +3,12 @@ import store from '@/store';
 import Axios from "axios";
 import router from '@/router';
 import Search from '../Search/Search.vue';
+import Loader from '../Loader/Loader.vue';
 
 @Options({
     components: {
-        Search
+        Search,
+        Loader
     }
 })
 

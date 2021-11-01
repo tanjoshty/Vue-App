@@ -24,7 +24,7 @@ export default class ProfilePosts extends Vue {
         } catch (error) {
             console.log("There was a problem");
         }
-        this.posts.forEach((post: any, index: number) => {
+        [...this.posts].forEach((post: any, index: number) => {
             this.posts[index].createdDate = this.formatDate(this.posts[index]);
         });
     }

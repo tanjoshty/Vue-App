@@ -8,10 +8,15 @@
         </div>
     </div>
     <div class="modal-results">
-        <div class="results">
+        <div v-if="show === 'results'" class="results">
             <ul>
                 <li class="search-results">
-                    <h3>Search Results ({{results.length}} items found)</h3>
+                    <div v-if="results.length > 0">
+                        <h3>Search Results ({{results.length}} items found)</h3>
+                    </div>
+                    <div v-else>
+                        <h3>No Results Found</h3>
+                    </div>
                 </li>
                 <li @click="goToSinglePost(post._id)" v-for="post in results" key="post._id">
                     <img :src="post.author.avatar">
@@ -20,5 +25,6 @@
                 </li>
             </ul>
         </div>
+        <div v-else-if="show === loading"><Loader /></div>
     </div>
 </div>
