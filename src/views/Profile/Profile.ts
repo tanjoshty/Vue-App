@@ -30,6 +30,13 @@ export default class Profile extends Vue {
         counts: {postCount: 0, followerCount: 0, followingCount: 0}
     };
 
+    public isSearchOpen: boolean = store.state.isSearchOpen;
+    
+    @Watch(`$store.state.isSearchOpen`)
+    function(newVal: any) {
+        this.isSearchOpen = newVal;
+    }
+
     @Watch('$route', {immediate: true, deep: true})
     public onRouteChange (to: any, from: any) {
         this.fetchProfileData();

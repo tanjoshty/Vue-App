@@ -1,4 +1,4 @@
-<div class="profile-container">
+<div :class="[isSearchOpen ? 'no-scroll' : '', 'profile-container']">
     <div class="profile-heading">
         <img :src="profileData.profileAvatar" alt="">
         <h2>{{profileData.profileUsername}}</h2>

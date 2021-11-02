@@ -4,6 +4,7 @@ import Axios from "axios";
 import { User } from '@/models/user';
 import ProfilePosts from '@/components/ProfilePosts/ProfilePosts';
 import router from '@/router';
+import { Watch } from 'vue-property-decorator';
 
 @Options({
     components: {
@@ -17,6 +18,12 @@ export default class Home extends Vue {
     private showFeed: boolean = false;
     private isLoading: boolean = true;
     private posts: any = [];
+    public isSearchOpen: boolean = store.state.isSearchOpen;
+    
+    @Watch(`$store.state.isSearchOpen`)
+    function(newVal: any) {
+        this.isSearchOpen = newVal;
+    }
     
 
     get username(): string {

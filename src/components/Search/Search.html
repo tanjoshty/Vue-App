@@ -1,4 +1,4 @@
-<div v-show="isSearchOpen" id="myModal" class="modal">
+<div v-show="isSearchOpen" id="myModal" class="modal" >
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-search-bar">
@@ -7,7 +7,7 @@
             <i @click="closeSearch" class="fas fa-times-circle fa-3x close"></i>
         </div>
     </div>
-    <div class="modal-results">
+    <div class="modal-results" >
         <div v-if="show === 'results'" class="results">
             <ul>
                 <li class="search-results">
@@ -25,6 +25,5 @@
                 </li>
             </ul>
         </div>
-        <div v-else-if="show === loading"><Loader /></div>
     </div>
 </div>

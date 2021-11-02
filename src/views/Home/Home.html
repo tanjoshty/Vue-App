@@ -1,4 +1,4 @@
-<div v-if="showFeed" class="posts-container">
+<div v-if="showFeed" :class="[isSearchOpen ? 'no-scroll' : '', 'posts-container']">
     <h2>The latest from those you follow</h2>
     <div class="list">
         <div class="posts">

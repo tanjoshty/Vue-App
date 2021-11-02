@@ -3,13 +3,6 @@ import store from '@/store';
 import Axios from "axios";
 import router from '@/router';
 import { Watch } from 'vue-property-decorator';
-import Loader from '../Loader/Loader.vue';
-
-@Options({
-    components: {
-        Loader
-    }
-})
 
 export default class Search extends Vue {
     public isSearchOpen: boolean = false;

@@ -1,15 +1,18 @@
 <template>
   <Header />
+  <Search />
   <router-view />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import Header from './components/Header/Header.vue';
+import Search from './components/Search/Search.vue';
 
 @Options({
   components: {
     Header,
+    Search
   }
 })
 export default class App extends Vue {}
@@ -22,3 +25,4 @@ export default class App extends Vue {}
   background-color: rgb(250, 248, 248)
 }
 </style>
+
