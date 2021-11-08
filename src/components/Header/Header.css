@@ -13,12 +13,17 @@ body {
   background-color: #eee
 }
 
+.header-content {
+  background: #0E0B16;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0E0B16;
   height: 70px;
+  max-width: 1080px;
+  margin: auto;
   padding: 0px 50px;
 }
 

@@ -4,6 +4,7 @@ import Axios from "axios";
 import router from '@/router';
 import { Watch } from 'vue-property-decorator';
 import marked from 'marked';
+import { formatDate } from '@/utility/date';
 
 export default class SinglePost extends Vue {
     private postId: any;
@@ -40,7 +41,7 @@ export default class SinglePost extends Vue {
         } catch (error) {
             console.log("There was a problem");
         }
-        this.post.createdDate = this.formatDate(this.post);
+        this.post.createdDate = formatDate(this.post);
 
         if (this.currentUser === this.post.author.username) {
             this.showButtons = true;
@@ -48,11 +49,6 @@ export default class SinglePost extends Vue {
             this.showButtons = false;
         }
 
-    }
-
-    public formatDate(post: any): string {
-        const date = new Date(post.createdDate);
-        return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     }
 
     public async deletePost(id: string): Promise<void> {

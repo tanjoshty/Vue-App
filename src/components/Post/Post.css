@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+
+.search-post {
+    background-color: #4717f6;
+    color: #fefefe;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    list-style: none;
+}
+
+.posts {
+    flex: 0 0 100%;
+    width: 50vw;
+}
+
+.posts ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.posts ul li:not(.search-post) {
+    display: flex;
+    background-color: rgb(250, 248, 248);
+    list-style: none;
+    align-items: center;
+    justify-content: stretch;
+    border: 1px grey solid;
+    border-bottom: none;
+    flex: 0 0 100%;
+    cursor: pointer;
+}
+
+.posts ul li:hover:not(.search-post) {
+    background: #E7DFDD;
+}
+
+.posts ul li:first-child {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.posts ul li:last-child {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom: 1px grey solid;
+}
+
+.posts ul li img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+
+h3 {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-family: "Cardo", sans-serif;
+    margin-bottom: 0.6rem;
+}
+
+h3, 
+p {
+    margin-left: 0.5rem;
+}

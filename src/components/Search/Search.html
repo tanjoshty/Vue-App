@@ -7,23 +7,9 @@
             <i @click="closeSearch" class="fas fa-times-circle fa-3x close"></i>
         </div>
     </div>
-    <div class="modal-results" >
-        <div v-if="show === 'results'" class="results">
-            <ul>
-                <li class="search-results">
-                    <div v-if="results.length > 0">
-                        <h3>Search Results ({{results.length}} items found)</h3>
-                    </div>
-                    <div v-else>
-                        <h3>No Results Found</h3>
-                    </div>
-                </li>
-                <li @click="goToSinglePost(post._id)" v-for="post in results" key="post._id">
-                    <img :src="post.author.avatar">
-                    <h3>{{post.title}} </h3>
-                    <p>by {{post.author.username}} on {{post.createdDate}}</p>
-                </li>
-            </ul>
+    <div class="modal-post" >
+        <div v-if="show === 'posts'" class="post">
+            <Post @close-search="closeSearch" :posts="posts" :username="username" search="search" />
         </div>
     </div>
 </div>

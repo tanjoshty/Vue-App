@@ -1,14 +1,16 @@
-<header>
-    <h3 @click="goHome">My App</h3>
-    <div v-if="loggedIn" class="nav-right">
-        <i @click="openSearch" class="fas fa-search fa-2x"></i>
-        <img @click="goToProfile" :src="avatar" alt="">
-        <button @click="goCreatePost" class="create-post">Create Post</button>
-        <button @click="logOut" class="sign-out">Sign Out</button>
-    </div>
-    <form @submit.prevent="logIn" v-else class="login-form">
-        <input type="text" placeholder="Username" v-model="username">
-        <input type="password" Placeholder="Password" v-model="password">
-        <input type="submit" value="Login">
-    </form>
-</header>
+<div class="header-content">
+    <header>
+        <h3 @click="goHome">My App</h3>
+        <div v-if="loggedIn" class="nav-right">
+            <i @click="openSearch" class="fas fa-search fa-2x"></i>
+            <img @click="goToProfile" :src="avatar" alt="">
+            <button @click="goCreatePost" class="create-post">Create Post</button>
+            <button @click="logOut" class="sign-out">Sign Out</button>
+        </div>
+        <form @submit.prevent="logIn" v-else class="login-form">
+            <input type="text" placeholder="Username" v-model="username">
+            <input type="password" Placeholder="Password" v-model="password">
+            <input type="submit" value="Login">
+        </form>
+    </header>
+</div>

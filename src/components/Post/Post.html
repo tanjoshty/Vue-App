@@ -1,0 +1,18 @@
+<div class="posts">
+    <ul>
+        <li class="search-post" v-if="search">
+            <div v-if="posts.length > 0">
+                <h3>Search Results ({{posts.length}} items found)</h3>
+            </div>
+            <div v-else>
+                <h3>No Results Found</h3>
+            </div>
+        </li>
+        <li @click="goToSinglePost(post._id)" v-for="post in posts" key="post._id">
+            <img :src="post.author.avatar">
+            <h3>{{post.title}} </h3>
+            <div v-if="post.author.username !== username"><p>by {{post.author.username}}</p></div>
+            <p>on {{post.createdDate}}</p>
+        </li>
+    </ul>
+</div>

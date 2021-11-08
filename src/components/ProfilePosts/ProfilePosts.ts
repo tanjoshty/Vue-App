@@ -3,13 +3,20 @@ import store from '@/store';
 import Axios from "axios";
 import router from '@/router';
 import { Prop, Watch } from 'vue-property-decorator';
+import { formatDate } from '@/utility/date';
+import Post from '../Post/Post.vue';
+
+@Options({
+    components: {
+        Post
+    }
+})
 
 export default class ProfilePosts extends Vue {
     private username: any;
     private user: any = store.getters['getUser'];
     private isLoading: boolean = true;
     private posts: any = [];
-
 
     mounted() {
         this.username = this.$route.params.id;
@@ -25,7 +32,7 @@ export default class ProfilePosts extends Vue {
             console.log("There was a problem");
         }
         [...this.posts].forEach((post: any, index: number) => {
-            this.posts[index].createdDate = this.formatDate(this.posts[index]);
+            this.posts[index].createdDate = formatDate(this.posts[index]);
         });
     }
 
@@ -34,12 +41,4 @@ export default class ProfilePosts extends Vue {
         this.fetchPosts(to.params.id);
     }
 
-    public formatDate(post: any): string {
-        const date = new Date(post.createdDate);
-        return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-    }
-
-    public goToSinglePost(id: string): void {
-        router.push({name: 'singlePost', params: {id}});
-    }
 }

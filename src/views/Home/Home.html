@@ -1,16 +1,6 @@
 <div v-if="showFeed" :class="[isSearchOpen ? 'no-scroll' : '', 'posts-container']">
     <h2>The latest from those you follow</h2>
-    <div class="list">
-        <div class="posts">
-            <ul>
-                <li @click="goToSinglePost(post._id)" v-for="post in posts" key="post._id">
-                    <img :src="post.author.avatar">
-                    <h3>{{post.title}} </h3>
-                    <p>by {{post.author.username}} on {{post.createdDate}}</p>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <Post :posts="posts" :username="username" />
 </div>
 
 <div v-else class="empty-container">

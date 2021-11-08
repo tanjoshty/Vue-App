@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
 
-.no-scroll {
-    position: fixed;
-}
-
 .profile-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     height: 68vh;
-    margin: 0 15rem;
+    width: 50vw;
+    margin: auto;
     padding: 4rem 2rem;
+}
+
+.no-scroll {
+    position: fixed;
+    margin-left: 23%;
 }
 
 .profile-heading {

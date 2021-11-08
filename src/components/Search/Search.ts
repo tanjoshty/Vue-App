@@ -3,11 +3,19 @@ import store from '@/store';
 import Axios from "axios";
 import router from '@/router';
 import { Watch } from 'vue-property-decorator';
+import { formatDate } from '@/utility/date';
+import Post from '../Post/Post.vue';
+
+@Options({
+    components: {
+        Post
+    }
+})
 
 export default class Search extends Vue {
     public isSearchOpen: boolean = false;
     public keyword: string = '';
-    public results: any = [];
+    public posts: any = [];
     public requestCount: number = 0;
     public show: string = 'neither';
 
@@ -38,20 +46,20 @@ export default class Search extends Vue {
     }
 
     @Watch('requestCount')
-    async fetchResults(newVal: any, oldVal: any) {
+    async fetchPosts(newVal: any, oldVal: any) {
         if (this.keyword === '') {
             return
         } else {
             try {
                 const response = await Axios.post("/search", {searchTerm: this.keyword});
     
-                this.results = response.data;
-                this.show = "results";
+                this.posts = response.data;
+                this.show = "posts";
             } catch (error) {
                 console.log("There was a problem or the request was cancelled");
             }
-            [...this.results].forEach((post: any, index: number) => {
-                this.results[index].createdDate = this.formatDate(this.results[index]);
+            [...this.posts].forEach((post: any, index: number) => {
+                this.posts[index].createdDate = formatDate(this.posts[index]);
             });
         }
     }
@@ -59,10 +67,5 @@ export default class Search extends Vue {
     public goToSinglePost(id: string): void {
         router.push({name: 'singlePost', params: {id}});
         this.closeSearch();
-    }
-
-    public formatDate(post: any): string {
-        const date = new Date(post.createdDate);
-        return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     }
 }
